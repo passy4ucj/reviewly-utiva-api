@@ -27,7 +27,41 @@ const createApartment = asyncHandler(async (req, res, next) => {
     
 })
 
+// @desc  Get all apartments
+// @route GET /api/v1/apartments
+// @access Public
+const getApartments = asyncHandler(async (req, res, next) => {
+    
+    const apartments = await Apartment.find()
+
+    res.status(200).json({
+        success: true,
+        data: apartments
+    })
+})
+
+
+// @desc  Get a single apartment
+// @route GET /api/v1/apartments/:id
+// @access Public
+const getApartment = asyncHandler(async (req, res, next) => {
+    
+    const apartment = await Apartment.findById(req.params.id)
+
+    if(!apartment) {
+        res.status(404)
+        throw new Error(`Apartment not found with id of ${req.params.id}`)
+    }
+
+    res.status(200).json({
+        success: true,
+        data: apartment
+    })
+})
+
 
 export {
     createApartment,
+    getApartment,
+    getApartments,
 }
