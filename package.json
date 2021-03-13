@@ -5,7 +5,8 @@
   "main": "server.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js",
+    "server": "nodemon server.js"
   },
   "author": "Pascal Ojinnaka",
   "license": "ISC",
@@ -19,5 +20,8 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.12.0",
     "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
   }
 }
