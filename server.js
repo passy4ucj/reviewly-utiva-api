@@ -20,6 +20,7 @@ connectDB()
 import auth from './routes/authRoutes.js'
 import apartments from './routes/apartmentRoute.js'
 import reviews from './routes/reviewRoute.js'
+import users from './routes/userRoute.js'
 
 
 
@@ -54,6 +55,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 app.use('/api/v1/auth', auth)
 app.use('/api/v1/apartments', apartments)
 app.use('/api/v1/reviews', reviews)
+app.use('/api/v1/users', users)
 
 //Use error Middleware
 app.use(notFound)
