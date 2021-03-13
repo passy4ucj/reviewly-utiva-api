@@ -34,6 +34,9 @@ if(process.env.NODE_ENV === 'development') {
     app.use(morgan('dev'))
 }
 
+// File uploading
+app.use(fileupload())
+
 app.use(cors())
 
 app.get('/', (req, res) => {
@@ -41,6 +44,11 @@ app.get('/', (req, res) => {
         message: 'API is running'
     })
 })
+
+
+// Set static folder
+const __dirname = path.resolve()
+app.use(express.static(path.join(__dirname, 'public')))
 
 // Mount routers
 app.use('/api/v1/auth', auth)
