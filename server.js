@@ -16,10 +16,13 @@ connectDB()
 
 
 //Route files
-
+import auth from './routes/authRoutes.js'
 
 
 const app = express()
+
+// Body parser
+app.use(express.json())
 
 
 // Dev logging middleware
@@ -34,6 +37,9 @@ app.get('/', (req, res) => {
         message: 'API is running'
     })
 })
+
+// Mount routers
+app.use('/api/v1/auth', auth)
 
 const PORT = process.env.PORT || 5000
 
