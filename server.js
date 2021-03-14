@@ -41,7 +41,7 @@ app.use(fileupload())
 app.use(cors())
 
 app.get('/', (req, res) => {
-    res.redirect('https://documenter.getpostman.com/view/9852313/TWDXpd1o')
+    res.redirect('https://documenter.getpostman.com/view/9852313/Tz5qaHTi')
 })
 
 
