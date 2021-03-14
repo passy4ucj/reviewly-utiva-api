@@ -7,12 +7,13 @@ const router = express.Router()
 
 // Include other resource routers
 import reviewRouter from './reviewRoute.js'
+import advancedResults from '../middleware/advancedResults.js'
 
 // Re-route into other resource routers
 router.use('/:apartmentId/reviews', reviewRouter)
 
 router.route('/')
-    .get(getApartments)
+    .get(advancedResults(Apartment, 'reviews'), getApartments)
     .post(protect, authorize('user', 'admin'), createApartment)
 
 router.route('/:id')

@@ -57,6 +57,15 @@ const apartmentSchema = new mongoose.Schema({
     toObject: { virtuals: true }
 })
 
+// Reverse populate with virtuals
+apartmentSchema.virtual('reviews', {
+  ref: 'Review',
+  localField: '_id',
+  foreignField: 'apartment',
+  justOne: false
+})
+
+
 
 const Apartment = mongoose.model('Apartment', apartmentSchema)
 

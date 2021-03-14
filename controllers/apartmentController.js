@@ -32,12 +32,9 @@ const createApartment = asyncHandler(async (req, res, next) => {
 // @access Public
 const getApartments = asyncHandler(async (req, res, next) => {
     
-    const apartments = await Apartment.find()
+    //const apartments = await Apartment.find()
 
-    res.status(200).json({
-        success: true,
-        data: apartments
-    })
+    res.status(200).json(res.advancedResults)
 })
 
 
