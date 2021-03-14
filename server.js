@@ -41,9 +41,7 @@ app.use(fileupload())
 app.use(cors())
 
 app.get('/', (req, res) => {
-    res.json({
-        message: 'API is running'
-    })
+    res.redirect('https://documenter.getpostman.com/view/9852313/TWDXpd1o')
 })
 
 
